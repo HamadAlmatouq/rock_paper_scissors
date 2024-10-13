@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// Added math library to use Random().nextInt()
 import 'dart:math';
 
 void main() {
@@ -11,6 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //removes banner
       debugShowCheckedModeBanner: false,
       home: GameScreen(),
     );
@@ -32,12 +34,12 @@ class _GameScreenState extends State<GameScreen> {
     int player1 = Random().nextInt(3) + 1;
     int player2 = Random().nextInt(3) + 1;
 
-    //
+    //Refresh
     setState(() {
       player1Choice = "assets/Images/$player1.png";
       player2Choice = "assets/Images/$player2.png";
 
-      //Winner ?
+      //Win or tie
       if (player1 == player2) {
         result = "Tie!";
       } else if (
